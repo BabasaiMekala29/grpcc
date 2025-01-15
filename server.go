@@ -44,13 +44,13 @@ func (s *server) PlaceOrder(context context.Context, order *pb.Order) (*pb.Recei
 
 func (s *server) GetOrderStatus(context context.Context, receipt *pb.Receipt) (*pb.OrderStatus, error) {
 	return &pb.OrderStatus{
-		orderId: receipt.Id,
+		OrderId: receipt.Id,
 		Status:  "IN PROGRESS",
 	}, nil
 }
 
 func main() {
-	lis, err := net.Listen("tcp", "8080")
+	lis, err := net.Listen("tcp", ":9000")
 	if err != nil {
 		log.Fatalf("failed to listen: %v", err)
 	}
